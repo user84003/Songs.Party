@@ -1668,14 +1668,14 @@
    "a": "Anu Malik, Neha Kakkar",
    "e": 4,
    "yt": "https://youtu.be/gNN7hyUi0To",
-   "hook": 17,
-   "end": null,
+   "hook": 35,
+   "end": 72,
    "categories": [
     "Hindi Dance (NAUX)",
     "Peak",
     "Prathamesh Fav"
    ],
-   "hs": "naux"
+   "hs": "manual"
   },
   {
    "id": "n123",
@@ -2848,14 +2848,14 @@
    "a": "Pritam, KK, Bob",
    "e": 4,
    "yt": "https://youtu.be/lyWHtKq1PcQ",
-   "hook": 167,
-   "end": null,
+   "hook": 43,
+   "end": 82,
    "categories": [
     "Hindi Dance (NAUX)",
     "Peak",
     "Prathamesh Fav"
    ],
-   "hs": "naux"
+   "hs": "manual"
   },
   {
    "id": "n208",
@@ -3165,13 +3165,13 @@
    "e": 4,
    "yt": "https://youtu.be/9HSxYztyXTY",
    "hook": 162,
-   "end": null,
+   "end": -1,
    "categories": [
     "Hindi Dance (NAUX)",
     "Prathamesh Fav",
     "Peak"
    ],
-   "hs": "naux"
+   "hs": "manual"
   },
   {
    "id": "n231",

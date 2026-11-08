@@ -7,7 +7,8 @@
   "Peak",
   "Prathamesh Fav",
   "not playing",
-  "maybe delete"
+  "maybe delete",
+  "Trying"
  ],
  "songs": [
   {
@@ -8185,6 +8186,177 @@
     "Prathamesh Fav"
    ],
    "hs": "manual"
+  },
+  {
+   "id": "u1794173745384",
+   "t": "Aahun aahun",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/Qk9bPR2wfJ4",
+   "hook": 44,
+   "end": null,
+   "categories": [
+    "Prathamesh Fav"
+   ],
+   "hs": "guess"
+  },
+  {
+   "id": "u1794174335225",
+   "t": "Dum-a-Dum",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/QCzPm0Ww4cc",
+   "hook": 28,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": "guess"
+  },
+  {
+   "id": "u1794174372379",
+   "t": "Apni to jaise taise",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/-C5buCfoGFg",
+   "hook": 150,
+   "end": 209,
+   "categories": [
+    "Trying"
+   ],
+   "hs": "manual"
+  },
+  {
+   "id": "u1794174389199",
+   "t": "Oh ho ho ho",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/NJwGCa0QRz8",
+   "hook": null,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": null
+  },
+  {
+   "id": "u1794174402393",
+   "t": "Crazy kiya re",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/J2Bh68GTUOU",
+   "hook": null,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": null
+  },
+  {
+   "id": "u1794174469407",
+   "t": "Kajra re",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/4dsFQFCvVGU",
+   "hook": null,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": null
+  },
+  {
+   "id": "u1794174485886",
+   "t": "Dope shope",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/tsO9qIM6B5M",
+   "hook": 43,
+   "end": 89,
+   "categories": [
+    "Trying",
+    "not playing"
+   ],
+   "hs": "manual"
+  },
+  {
+   "id": "u1794174508412",
+   "t": "Angreji beat",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/ZTgvgmhC1gQ",
+   "hook": null,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": null
+  },
+  {
+   "id": "u1794174514165",
+   "t": "Brown rang",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/iX4qQlm-0NY",
+   "hook": 41,
+   "end": null,
+   "categories": [
+    "Trying",
+    "not playing"
+   ],
+   "hs": "guess"
+  },
+  {
+   "id": "u1794174532769",
+   "t": "Pungi",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/Sjh1PQ9B73Y",
+   "hook": 47,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": "guess"
+  },
+  {
+   "id": "u1794174559826",
+   "t": "Sajna ji vaari vaari",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/ZEMsTk5SPSg",
+   "hook": 46,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": "guess"
+  },
+  {
+   "id": "u1794174599862",
+   "t": "Pinky",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/7F1ET2XHQfk",
+   "hook": null,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": null
+  },
+  {
+   "id": "u1794174617535",
+   "t": "Tinku jiya",
+   "a": "",
+   "e": 4,
+   "yt": "https://youtu.be/94A9SNq6sBA",
+   "hook": null,
+   "end": null,
+   "categories": [
+    "Trying"
+   ],
+   "hs": null
   }
  ]
 }

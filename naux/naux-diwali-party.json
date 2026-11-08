@@ -1,0 +1,1294 @@
+{
+ "cats": [
+  "Diwali Party (NAUX)"
+ ],
+ "songs": [
+  {
+   "id": "d0",
+   "t": "Veer Ji Viyohn",
+   "a": "Jassi Sidhu",
+   "e": 4,
+   "yt": "",
+   "hook": 21,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d1",
+   "t": "Pyar Dilon Ka Mela Hai",
+   "a": "Alka Yagnik, Sonu Nigam",
+   "e": 4,
+   "yt": "",
+   "hook": 14,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d2",
+   "t": "Chunnari Chunnari",
+   "a": "Abhijeet, Anuradha Sriram",
+   "e": 4,
+   "yt": "",
+   "hook": 21,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d3",
+   "t": "Dholi Taro Dhol Baaje",
+   "a": "Kavita Krishnamurthy, Vinod Rathod",
+   "e": 4,
+   "yt": "",
+   "hook": 142,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d4",
+   "t": "Main Aai Hoon Up Bihar Lootne",
+   "a": "Sapna Awasthi, Chetan Shashitaal",
+   "e": 4,
+   "yt": "",
+   "hook": 62,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d5",
+   "t": "What Is Mobile Number",
+   "a": "Anu Malik, Sonu Nigam, Alka Yagnik",
+   "e": 4,
+   "yt": "",
+   "hook": 59,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d6",
+   "t": "Ankhiyon Se Goli Maare (1998)",
+   "a": "Sonu Nigam, Jaspinder Narula",
+   "e": 4,
+   "yt": "",
+   "hook": 52,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d7",
+   "t": "Chaiyya Chaiyya",
+   "a": "Sukhwinder Singh, Sapna Awasthi",
+   "e": 4,
+   "yt": "",
+   "hook": 208,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d8",
+   "t": "Chamma Chamma Baaje Re",
+   "a": "Alka Yagnik, Vinod Rathod",
+   "e": 4,
+   "yt": "",
+   "hook": 40,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d9",
+   "t": "Kisi Disco Mein Jaaye",
+   "a": "Alka Yagnik, Udit Narayan",
+   "e": 4,
+   "yt": "",
+   "hook": 32,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d10",
+   "t": "Koi Mil Gaya",
+   "a": "Jatin-Lalit, Kavita Krishnamurthy",
+   "e": 4,
+   "yt": "",
+   "hook": 62,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d11",
+   "t": "Makhna",
+   "a": "Alka Yagnik, Udit Narayan, Amit Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 49,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d12",
+   "t": "O O Jaane Jaana",
+   "a": "Kamaal Khan",
+   "e": 4,
+   "yt": "",
+   "hook": 88,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d13",
+   "t": "Saajanji Ghar Aaye",
+   "a": "Jatin-Lalit, Kumar Sanu",
+   "e": 4,
+   "yt": "",
+   "hook": 342,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d14",
+   "t": "Yeh Ladka Hai Deewana",
+   "a": "Jatin-Lalit, Udit Narayan",
+   "e": 4,
+   "yt": "",
+   "hook": 76,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d15",
+   "t": "Duniya Haseenon Ka Mela",
+   "a": "Udit Narayan, Sunita Rao",
+   "e": 4,
+   "yt": "",
+   "hook": 214,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d16",
+   "t": "Koi Ladki Hai",
+   "a": "Lata Mangeshkar, Udit Narayan",
+   "e": 4,
+   "yt": "",
+   "hook": 26,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d17",
+   "t": "Le Gayi",
+   "a": "Asha Bhosle",
+   "e": 4,
+   "yt": "",
+   "hook": 67,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d18",
+   "t": "Neend Churayee Meri (OG)",
+   "a": "Anu Malik, Kumar Sanu",
+   "e": 4,
+   "yt": "",
+   "hook": 18,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d19",
+   "t": "Oonchi Hai Building (OG)",
+   "a": "Poornima, Anu Malik",
+   "e": 4,
+   "yt": "",
+   "hook": 34,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d20",
+   "t": "Sona Kitna Sona Hai",
+   "a": "Udit Narayan, Poornima",
+   "e": 4,
+   "yt": "",
+   "hook": 20,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d21",
+   "t": "Tan Tana Tan Tan",
+   "a": "Abhijeet, Poornima",
+   "e": 4,
+   "yt": "",
+   "hook": 45,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d22",
+   "t": "Husn Hai Suhana",
+   "a": "Chandana Dixit, Abhijeet",
+   "e": 4,
+   "yt": "",
+   "hook": 47,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d23",
+   "t": "Main Toh Raste Se Ja Raha Tha",
+   "a": "Alka Yagnik, Kumar Sanu",
+   "e": 4,
+   "yt": "",
+   "hook": 157,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d24",
+   "t": "Mehndi Laga Ke Rakhna",
+   "a": "Lata Mangeshkar, Udit Narayan",
+   "e": 4,
+   "yt": "",
+   "hook": 32,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d25",
+   "t": "Mera Piya Ghar Aaya",
+   "a": "Kavita Krishnamurthy",
+   "e": 4,
+   "yt": "",
+   "hook": 77,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d26",
+   "t": "Rangeela Re",
+   "a": "Asha Bhosle, Aditya Narayan",
+   "e": 4,
+   "yt": "",
+   "hook": 264,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d27",
+   "t": "Ruk Ja O Dil Deewane",
+   "a": "Udit Narayan",
+   "e": 4,
+   "yt": "",
+   "hook": 31,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d28",
+   "t": "Zara Sa Jhoom Loon Main",
+   "a": "Asha Bhosle, Abhijeet",
+   "e": 4,
+   "yt": "",
+   "hook": 203,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d29",
+   "t": "Aa Aa E Ooh Ooh Ooh Mera Dil Na Todo",
+   "a": "Abhijeet",
+   "e": 4,
+   "yt": "",
+   "hook": 128,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d30",
+   "t": "Channe Ke Khet Mein",
+   "a": "Poornima",
+   "e": 4,
+   "yt": "",
+   "hook": 46,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d31",
+   "t": "Chura Ke Dil Mera",
+   "a": "Kumar Sanu, Alka Yagnik",
+   "e": 4,
+   "yt": "",
+   "hook": 164,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d32",
+   "t": "Didi Tera Devar Deewana",
+   "a": "Lata Mangeshkar, S.P. Balasubrahmanyam",
+   "e": 4,
+   "yt": "",
+   "hook": 348,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d33",
+   "t": "Gore Gore Mukhde Pe",
+   "a": "Udit Narayan, Alka Yagnik",
+   "e": 4,
+   "yt": "",
+   "hook": 49,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d34",
+   "t": "Main Khiladi Tu Anari (OG)",
+   "a": "Abhijeet, Udit Narayan, Anu Malik",
+   "e": 4,
+   "yt": "",
+   "hook": 97,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d35",
+   "t": "Muqabala Muqabala",
+   "a": "Mano, Swarnalatha",
+   "e": 4,
+   "yt": "",
+   "hook": 15,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d36",
+   "t": "Ole Ole (OG)",
+   "a": "Abhijeet",
+   "e": 4,
+   "yt": "",
+   "hook": 74,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d37",
+   "t": "Tip Tip Barsa Paani",
+   "a": "Alka Yagnik, Udit Narayan",
+   "e": 4,
+   "yt": "",
+   "hook": 187,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d38",
+   "t": "Tu Cheez Badi Hain",
+   "a": "Udit Narayan, Kavita Krishnamurthy",
+   "e": 4,
+   "yt": "",
+   "hook": 54,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d39",
+   "t": "Urvashi Urvashi (OG)",
+   "a": "A.R. Rahman, Shankar Mahadevan",
+   "e": 4,
+   "yt": "",
+   "hook": 27,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d40",
+   "t": "Choli Ke Peeche (1993)",
+   "a": "Alka Yagnik, Ila Arun",
+   "e": 4,
+   "yt": "",
+   "hook": 316,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d41",
+   "t": "Ye Kaali Kaali Aankhen",
+   "a": "Kumar Sanu, Anu Malik",
+   "e": 4,
+   "yt": "",
+   "hook": 147,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d42",
+   "t": "Saat Samundar Paar",
+   "a": "Sadhana Sargam",
+   "e": 4,
+   "yt": "",
+   "hook": 40,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d43",
+   "t": "Jooma Chumma De De",
+   "a": "Sudesh Bhosle, Kavita Krishnamurthy",
+   "e": 4,
+   "yt": "",
+   "hook": 109,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d44",
+   "t": "My Name Is Lakhan",
+   "a": "Mohammed Aziz, Anuradha Paudwal",
+   "e": 4,
+   "yt": "",
+   "hook": 73,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d45",
+   "t": "Tamma Tamma Loge (OG)",
+   "a": "Bappi Lahiri, Anuradha Paudwal",
+   "e": 4,
+   "yt": "",
+   "hook": 82,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d46",
+   "t": "Tirchi Topiwale - 1",
+   "a": "Amit Kumar, Sapna Mukherjee",
+   "e": 4,
+   "yt": "",
+   "hook": 86,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d47",
+   "t": "Ek Do Teen Char",
+   "a": "Alka Yagnik",
+   "e": 4,
+   "yt": "",
+   "hook": 154,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d48",
+   "t": "Aap Ke Aa Jane Se",
+   "a": "Mohammed Aziz, Sadhana Sargam",
+   "e": 4,
+   "yt": "",
+   "hook": 39,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d49",
+   "t": "Hawa Hawai (OG)",
+   "a": "Kavita Krishnamurthy",
+   "e": 4,
+   "yt": "",
+   "hook": 91,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d50",
+   "t": "Main Teri Dushman Dushman Tu",
+   "a": "Lata Mangeshkar",
+   "e": 4,
+   "yt": "",
+   "hook": 21,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d51",
+   "t": "Yaar Bina Chain Kahan Re",
+   "a": "Bappi Lahiri, S. Janaki",
+   "e": 4,
+   "yt": "",
+   "hook": 52,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d52",
+   "t": "De De Pyar De",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 172,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d53",
+   "t": "Aaj Rapat Jaayen To",
+   "a": "Kishore Kumar, Asha Bhosle",
+   "e": 4,
+   "yt": "",
+   "hook": 50,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d54",
+   "t": "I Am A Disco Dancer",
+   "a": "Vijay Benedict",
+   "e": 4,
+   "yt": "",
+   "hook": 268,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d55",
+   "t": "Jawani Janeman",
+   "a": "Asha Bhosle",
+   "e": 4,
+   "yt": "",
+   "hook": 152,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d56",
+   "t": "Jimmy Jimmy Jimmy Aaja",
+   "a": "Parvati Khan",
+   "e": 4,
+   "yt": "",
+   "hook": 85,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d57",
+   "t": "Pag Ghunghroo Baandh",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 97,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d58",
+   "t": "Pyar Hamen Kis Mod Pe",
+   "a": "Kishore Kumar, R.D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 287,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d59",
+   "t": "Raat Baaqi Baat Baaqi",
+   "a": "Shashi Kapoor, Asha Bhosle",
+   "e": 4,
+   "yt": "",
+   "hook": 277,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d60",
+   "t": "Thodisi Jo Pee Lee Hai",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 222,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d61",
+   "t": "Yaad Aa Raha Hai",
+   "a": "Bappi Lahiri",
+   "e": 4,
+   "yt": "",
+   "hook": 160,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d62",
+   "t": "Aa Dekhen Zara (1981)",
+   "a": "Asha Bhosle, Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 135,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d63",
+   "t": "Apni To Jaise Taise (OG)",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 133,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d64",
+   "t": "Dil Lena Khel Hai Dildar Ka",
+   "a": "Rahul Dev Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 43,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d65",
+   "t": "Hoga Tumse Pyara Kaun",
+   "a": "Shailendra Singh, R. D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 24,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d66",
+   "t": "Jahan Teri Yeh Nazar Hai",
+   "a": "Kishore Kumar, R.D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 134,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d67",
+   "t": "Ramba Ho-Ho-Ho Samba Ho-Ho-Ho",
+   "a": "Usha Uthup",
+   "e": 4,
+   "yt": "",
+   "hook": 44,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d68",
+   "t": "Rang Barse Bheege Chunarwali",
+   "a": "Amitabh Bachchan",
+   "e": 4,
+   "yt": "",
+   "hook": 60,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d69",
+   "t": "Sara Zamana (OG)",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 97,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d70",
+   "t": "Aap Jaisa Koi (OG)",
+   "a": "Nazia Hassan",
+   "e": 4,
+   "yt": "",
+   "hook": 40,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d71",
+   "t": "Hari Om Hari",
+   "a": "Usha Uthup",
+   "e": 4,
+   "yt": "",
+   "hook": 140,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d72",
+   "t": "Janu Meri Jaan",
+   "a": "Mohd. Rafi, Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 34,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d73",
+   "t": "Laila O Laila (OG)",
+   "a": "Kanchan, Amit Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 31,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d74",
+   "t": "Om Shanti Om",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 277,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d75",
+   "t": "Yamma Yamma",
+   "a": "Mohd. Rafi, R.D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 213,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d76",
+   "t": "Ho Pardesia",
+   "a": "Lata Mangeshkar, Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 95,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d77",
+   "t": "Khaike Paan Banaras Wala (OG)",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 19,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d78",
+   "t": "Yeh Mera Dil Yaar Ka Diwana",
+   "a": "Asha Bhosle",
+   "e": 4,
+   "yt": "",
+   "hook": 35,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d79",
+   "t": "Bachna Ae Hasinon Lo Main Aa Gaya",
+   "a": "Kishore Kumar, R.D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 27,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d80",
+   "t": "My Name Is Anthony Gonsalves",
+   "a": "Kishore Kumar, Amitabh Bachchan",
+   "e": 4,
+   "yt": "",
+   "hook": null,
+   "end": null,
+   "hs": null,
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d81",
+   "t": "Pardah Hai Pardah",
+   "a": "Mohammed Rafi",
+   "e": 4,
+   "yt": "",
+   "hook": 120,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d82",
+   "t": "Khullam Khulla Pyar Karenge",
+   "a": "Asha Bhosle, Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 210,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d83",
+   "t": "Mehbooba Mehbooba (OG)",
+   "a": "R.D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 48,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d84",
+   "t": "Jai Jai Shiv Shankar (1974)",
+   "a": "Lata Mangeshkar, Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 31,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d85",
+   "t": "Lekar Hum Diwana Dil",
+   "a": "Asha Bhosle, Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 99,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d86",
+   "t": "Dekha Na Haye Re",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 104,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d87",
+   "t": "Duniya Mein Logon Ko",
+   "a": "Asha Bhosle, R.D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 31,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d88",
+   "t": "Samne Ye Kaun Aya",
+   "a": "Kishore Kumar, R.D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 13,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d89",
+   "t": "Ye Jawani Hai Diwani",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 24,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d90",
+   "t": "Chadhti Jawani Meri Chaal Mastani",
+   "a": "Lata Mangeshkar, Mohd. Rafi",
+   "e": 4,
+   "yt": "",
+   "hook": 39,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d91",
+   "t": "Piya Tu Ab To Aaja",
+   "a": "Asha Bhosle, R.D. Burman",
+   "e": 4,
+   "yt": "",
+   "hook": 39,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d92",
+   "t": "Badan Pe Sitare Lapete Huye",
+   "a": "Mohammed Rafi",
+   "e": 4,
+   "yt": "",
+   "hook": 28,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d93",
+   "t": "Aajkal Tere Mere Pyar Ke Charche",
+   "a": "Suman Kalyanpur, Mohd. Rafi",
+   "e": 4,
+   "yt": "",
+   "hook": 25,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d94",
+   "t": "Aaja Aaja Main Hoon Pyar Tera",
+   "a": "Asha Bhosle, Mohd. Rafi",
+   "e": 4,
+   "yt": "",
+   "hook": 235,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d95",
+   "t": "O Haseena Zulfonwali Jane Jahan",
+   "a": "Asha Bhosle, Mohd. Rafi",
+   "e": 4,
+   "yt": "",
+   "hook": 30,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d96",
+   "t": "Baar Baar Dekho",
+   "a": "Mohammed Rafi",
+   "e": 4,
+   "yt": "",
+   "hook": 29,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d97",
+   "t": "Yahoo Chahe Koi Mujhe Junglee Kahe",
+   "a": "Mohammed Rafi",
+   "e": 4,
+   "yt": "",
+   "hook": 10,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  },
+  {
+   "id": "d98",
+   "t": "Mere Sapnon Ki Rani",
+   "a": "Kishore Kumar",
+   "e": 4,
+   "yt": "",
+   "hook": 39,
+   "end": null,
+   "hs": "naux",
+   "categories": [
+    "Diwali Party (NAUX)"
+   ]
+  }
+ ]
+}

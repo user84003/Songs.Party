@@ -6,7 +6,8 @@
 :root{--l:#c8ff00;--bg:#070707;--m:#8a8a8a}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:#fff;font:500 16px Inter,system-ui,sans-serif}
 .a,h1,h2,.pill,.big,.lbl,.logo{font-family:Anton,Impact,'Arial Narrow',sans-serif;text-transform:uppercase;letter-spacing:.5px;font-weight:400}
-.scr{min-height:100vh;padding:22px 24px;display:flex;flex-direction:column}.scr[hidden]{display:none}
+:root{--z:1}
+.scr{zoom:var(--z);min-height:calc(100vh / var(--z));padding:22px 24px;display:flex;flex-direction:column}.scr[hidden]{display:none}
 .logo{color:var(--l);font-size:44px;line-height:1}
 .top{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .pill{border:2px solid #444;border-radius:99px;padding:8px 18px;font-size:19px;display:flex;gap:12px;align-items:center;background:none;color:#fff}
@@ -76,6 +77,7 @@ a{color:var(--l)}
  <div class="tg">Hindi · Dance · Only bangers. Drops straight into the hook and mixes into the next.</div>
  <div class="row">
   <label>Songs in set <select id="size"><option>10</option><option selected>15</option><option>20</option><option value="all">All</option></select></label>
+  <label>Interface size <select id="zoom"><option value="0.67">Compact (67%)</option><option value="0.8">Medium (80%)</option><option value="1">Large (100%)</option></select></label>
   <label>Play from <select id="pcat"></select></label>
   <label>Seconds per hook <select id="slice"><option>45</option><option selected>60</option><option>90</option></select></label>
  </div>
@@ -330,6 +332,10 @@ $('resume').onclick=()=>{initYT();if(!YTready){$('homemsg').textContent=apiErr||
  queue=q;slice=+$('slice').value;full=false;beginPlay($('homemsg'),Math.max(0,ss.pos-2))};
 function preload(){if(!running||lock)return;const n=queue[idx+1];if(!n||!ytId(n.yt)||cuedFor===n.id)return;const p=decks[1-cur];if(!p||!p.cueVideoById)return;
  p.setVolume(0);p.cueVideoById({videoId:ytId(n.yt),startSeconds:n.hook!=null?n.hook:(n.dur?Math.round(n.dur*.22):40)});cuedFor=n.id}
+function applyZoom(){const v=parseFloat(localStorage.getItem('naux.zoom'))||0.67;document.documentElement.style.setProperty('--z',innerWidth>700?v:1)}
+$('zoom').value=String(parseFloat(localStorage.getItem('naux.zoom'))||0.67);
+$('zoom').onchange=()=>{localStorage.setItem('naux.zoom',$('zoom').value);applyZoom()};
+addEventListener('resize',applyZoom);applyZoom();
 $('catd').open=!matchMedia('(max-width:700px)').matches;
 function tick(){if(!running)return;preload();if(++tc%20===0)saveSession();const p=decks[cur],s=queue[idx];if(!p||!p.getDuration)return;const dur=p.getDuration();if(!$('tap').hidden&&p.getPlayerState()===1)$('tap').hidden=true;if(!dur){drawIdle(s);return}
  s.dur=dur;if(s.hook==null&&!s._sk){s._sk=1;s.hook=Math.round(dur*.22);s.hs='guess';p.seekTo(s.hook,true);save()}

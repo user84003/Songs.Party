@@ -80,6 +80,7 @@ a{color:var(--l)}
   <label>Seconds per hook <select id="slice"><option>45</option><option selected>60</option><option>90</option></select></label>
  </div>
  <button class="big lime" id="start">Start the aux</button>
+ <button class="big" id="resume" hidden style="font-size:30px">Resume last set</button>
  <button class="big" id="openlib" style="font-size:36px">Song library</button>
  <div class="msg" id="homemsg"></div>
 </section>
@@ -146,7 +147,7 @@ async function loadSongs(){let raw=null,err='';const g0=JSON.parse(localStorage.
  songs=[...base.filter(b=>!del.includes(b.id)),...extra.filter(x=>!baseMap[x.id])].map(x=>{const o={...(ov[x.id]||{})};if(!(o.hs==='manual'||o.hs==='yt'||(!o.hs&&'hs' in o&&x.hs==='manual'))){delete o.hook;delete o.end;delete o.hs}return norm(Object.assign({dur:0,hook:null,end:null,yt:'',categories:null,hs:null},x,o))});cats=[...new Set([...jc,...JSON.parse(localStorage.getItem('naux.cats')||'[]'),...songs.flatMap(x=>cl(x))])].filter(c=>!delc.includes(c));
  loaded=true;renderLib();
  const m=err?`Could not load songs.json (${err}). Open this app through http://localhost (npx serve) or GitHub Pages, not by double-clicking index.html. Showing only the 24 built-in songs.`:`${songs.length} songs loaded in ${cats.length} categories.`+(g0.repo&&g0.token?' Syncing with GitHub.':' Changes stay on this device (add a GitHub token in Song library to sync).');
- $('homemsg').textContent=m;$('libmsg').textContent=m}
+ $('homemsg').textContent=m;$('libmsg').textContent=m;try{const ss=JSON.parse(localStorage.getItem('naux.sess')||'null');$('resume').hidden=!(ss&&ss.ids&&ss.ids.length&&Date.now()-ss.t<216e5)}catch(e){}}
 function save(q){if(!loaded)return;const ov={},extra=[];
  songs.forEach(x=>{const b=baseMap[x.id];if(!b){extra.push(strip(x));return}const d={};['t','a','yt','hook','end','categories','hs'].forEach(f=>{if(JSON.stringify(x[f]??null)!==JSON.stringify(b[f]??null))d[f]=x[f]});if(Object.keys(d).length)ov[x.id]=d});
  localStorage.setItem('naux.ov',JSON.stringify(ov));localStorage.setItem('naux.extra',JSON.stringify(extra));localStorage.setItem('naux.del',JSON.stringify(del));localStorage.setItem('naux.cats',JSON.stringify(cats));localStorage.setItem('naux.delcats',JSON.stringify(delc));
@@ -282,12 +283,12 @@ sc.onerror=()=>{apiErr='YouTube script blocked. Open via http://localhost in a n
 let queue=[],idx=0,cur=0,running=false,full=false,slice=60,lock=false,noteUntil=0,tk=null,noteTxt='';
 const note=t=>{noteTxt=t;noteUntil=Date.now()+2500};
 function fade(p,a,b,ms,done){let i=0;const iv=setInterval(()=>{i++;p.setVolume(Math.round(a+(b-a)*i/20));if(i>=20){clearInterval(iv);done&&done()}},ms/20)}
-function loadOn(d,s){const p=decks[d];p.setVolume(0);p.loadVideoById({videoId:ytId(s.yt),startSeconds:s.hook!=null?s.hook:(s.dur?Math.round(s.dur*.22):40)})}
+function loadOn(d,s,at){const p=decks[d];p.setVolume(0);p.loadVideoById({videoId:ytId(s.yt),startSeconds:at!=null?at:(s.hook!=null?s.hook:(s.dur?Math.round(s.dur*.22):40))})}
 const cueCut=(s,dur)=>{const c=s.hook!=null?s.hook:Math.round(dur*.22);return[c,full?dur:Math.min(dur-1,s.end!=null?Math.max(s.end,c+10):c+slice)]};
 
 function render(){const s=queue[idx],n=queue[idx+1];$('ta').textContent=s.t;$('aa').textContent=s.a;
  $('tb').textContent=n?n.t:'End of set';$('ab').textContent=n?n.a:'';$('bs').textContent=n?'○ Cueing':'';
- $('full').textContent=full?'Back to hooks':'Play full';catPicker();warm()}
+ $('full').textContent=full?'Back to hooks':'Play full';catPicker();warm();mediaSess()}
 
 var starting=false;
 $('start').onclick=async()=>{if(starting)return;initYT();const m=$('homemsg');
@@ -304,18 +305,33 @@ $('start').onclick=async()=>{if(starting)return;initYT();const m=$('homemsg');
    if(!ok){m.textContent='Could not find YouTube links automatically. Add a YouTube API key in Song library, or paste links.';return}}
   beginPlay(m)}
  finally{starting=false}};
-function beginPlay(m){idx=0;cur=0;running=true;lock=false;m.textContent='';
+function beginPlay(m,at){idx=0;cur=0;running=true;lock=false;m.textContent='';
  $('ft').textContent=`Hindi · ${pcatVal||'All songs'} · ${queue.length} songs`;
- show('player');$('hint').hidden=!!localStorage.getItem('naux.hint');render();loadOn(0,queue[0]);fade(decks[0],0,100,1500);
- clearInterval(tk);tk=setInterval(tick,250);
+ show('player');$('hint').hidden=!!localStorage.getItem('naux.hint');render();loadOn(0,queue[0],at);fade(decks[0],0,100,1500);
+ wakeOn();clearInterval(tk);tk=setInterval(tick,250);
  setTimeout(()=>{if(!running)return;const st=decks[cur].getPlayerState();if(st!==1&&st!==3&&$('pp').textContent!=='▶')$('tap').hidden=false},3000)}
 $('tap').onclick=()=>{$('tap').hidden=true;decks[cur].playVideo();fade(decks[cur],0,100,800)};
 
-var cuedFor=null;
+var cuedFor=null,tc=0,wl=null;
+async function wakeOn(){try{if('wakeLock' in navigator&&!wl){wl=await navigator.wakeLock.request('screen');wl.addEventListener('release',()=>{wl=null})}}catch(e){}}
+function wakeOff(){try{wl&&wl.release()}catch(e){}wl=null}
+function mediaSess(){if(!('mediaSession' in navigator))return;const s=queue[idx];if(!s)return;
+ try{navigator.mediaSession.metadata=new MediaMetadata({title:s.t,artist:s.a,album:'NAUX'});
+  navigator.mediaSession.setActionHandler('nexttrack',()=>next());
+  navigator.mediaSession.setActionHandler('play',()=>{decks[cur].playVideo();$('pp').textContent='❚❚'});
+  navigator.mediaSession.setActionHandler('pause',()=>{decks[cur].pauseVideo();$('pp').textContent='▶'})}catch(e){}}
+function saveSession(){if(!running)return;try{const p=decks[cur];localStorage.setItem('naux.sess',JSON.stringify({t:Date.now(),ids:queue.map(x=>x.id),idx,pos:p&&p.getCurrentTime?p.getCurrentTime():0}))}catch(e){}}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='visible'||!running)return;wakeOn();const p=decks[cur];
+ if(p&&p.getPlayerState&&p.getPlayerState()!==1&&$('pp').textContent!=='▶')p.playVideo()});
+$('resume').onclick=()=>{initYT();if(!YTready){$('homemsg').textContent=apiErr||'YouTube player is still loading. Retry in a second.';return}
+ let ss=null;try{ss=JSON.parse(localStorage.getItem('naux.sess')||'null')}catch(e){}if(!ss)return;
+ const byId={};songs.forEach(x=>byId[x.id]=x);const curId=ss.ids[ss.idx];let q=ss.ids.map(id=>byId[id]).filter(Boolean);
+ const k=Math.max(0,q.findIndex(x=>x.id===curId));q=q.slice(k);if(!q.length||!ytId(q[0].yt)){$('homemsg').textContent='Could not resume that set. Start a new one.';return}
+ queue=q;slice=+$('slice').value;full=false;beginPlay($('homemsg'),Math.max(0,ss.pos-2))};
 function preload(){if(!running||lock)return;const n=queue[idx+1];if(!n||!ytId(n.yt)||cuedFor===n.id)return;const p=decks[1-cur];if(!p||!p.cueVideoById)return;
  p.setVolume(0);p.cueVideoById({videoId:ytId(n.yt),startSeconds:n.hook!=null?n.hook:(n.dur?Math.round(n.dur*.22):40)});cuedFor=n.id}
 $('catd').open=!matchMedia('(max-width:700px)').matches;
-function tick(){if(!running)return;preload();const p=decks[cur],s=queue[idx];if(!p||!p.getDuration)return;const dur=p.getDuration();if(!$('tap').hidden&&p.getPlayerState()===1)$('tap').hidden=true;if(!dur){drawIdle(s);return}
+function tick(){if(!running)return;preload();if(++tc%20===0)saveSession();const p=decks[cur],s=queue[idx];if(!p||!p.getDuration)return;const dur=p.getDuration();if(!$('tap').hidden&&p.getPlayerState()===1)$('tap').hidden=true;if(!dur){drawIdle(s);return}
  s.dur=dur;if(s.hook==null&&!s._sk){s._sk=1;s.hook=Math.round(dur*.22);s.hs='guess';p.seekTo(s.hook,true);save()}
  const [c,cut]=cueCut(s,dur),pos=p.getCurrentTime(),n=queue[idx+1];
  $('tm').textContent=`${fmt(pos)} / ${fmt(dur)}`;
@@ -338,7 +354,7 @@ function deckB(){const n=queue[idx+1];$('tb').textContent=n?n.t:'End of set';$('
 async function warm(){if(warming)return;warming=true;
  try{for(const k of[1,2]){const x=queue[idx+k];if(x&&!ytId(x.yt)){const id=await findLink(x.t+' '+x.a+' official video');if(id){x.yt='https://youtu.be/'+id;save()}else{const j=queue.indexOf(x);if(j>idx)queue.splice(j,1)}}}}
  finally{warming=false}deckB()}
-function stopAll(m){running=false;cuedFor=null;clearInterval(tk);decks.forEach(d=>d&&d.pauseVideo&&d.pauseVideo());show('home');$('homemsg').textContent=m||''}
+function stopAll(m){running=false;cuedFor=null;wakeOff();localStorage.removeItem('naux.sess');clearInterval(tk);decks.forEach(d=>d&&d.pauseVideo&&d.pauseVideo());show('home');$('homemsg').textContent=m||''}
 
 $('rh').onclick=async()=>{const s0=queue[idx];await defaultHook(s0);if(s0===queue[idx]&&s0.hook!=null)decks[cur].seekTo(s0.hook,true);save()};
 function catPicker(){const s=queue[idx];if(!s)return;$('catn').textContent=cl(s).length?'· '+cl(s).length:'';

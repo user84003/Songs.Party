@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>NAUX · The aux, handled</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -20,7 +20,7 @@ h1{font-size:clamp(44px,8.5vw,120px);line-height:.95;margin:6px 0}
 .b h2{font-size:clamp(34px,5.5vw,76px);color:#4d4d4d;line-height:.95;margin:6px 0}.b .art{color:#555;font-size:22px}
 #hint{display:inline-flex;gap:10px;border:3px solid var(--l);color:#fff;border-radius:99px;padding:8px 20px;font-weight:700;box-shadow:0 0 24px #c8ff0055;margin-bottom:10px}
 #hint[hidden]{display:none}
-canvas{width:100%;max-width:1100px;height:120px;touch-action:none;cursor:ew-resize;display:block}
+canvas{width:100%;max-width:1100px;height:150px;touch-action:none;cursor:grab;display:block}
 .agent{margin-top:auto;border-top:3px solid #2a2a2a;border-bottom:3px solid #2a2a2a;padding:14px 0;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .agent .k{color:var(--l);font-size:34px}.agent .t{font-size:30px;flex:1;min-width:220px}
 .ob{border:2px solid #555;background:none;color:#fff;border-radius:99px;padding:12px 22px;font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:20px;cursor:pointer}
@@ -40,7 +40,33 @@ canvas{width:100%;max-width:1100px;height:120px;touch-action:none;cursor:ew-resi
 .cd{position:relative}.cd summary{cursor:pointer;font-size:13px;padding:5px 8px;border:1px solid #333;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cdl{position:absolute;z-index:5;right:0;background:#141414;border:1px solid #444;border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:190px}.cdl label{font-size:13px;white-space:nowrap}.cdl input{width:auto!important}
 .ob.d{border-color:#ff5252;color:#ff5252}
 a{color:var(--l)}
-@media(max-width:800px){.decks{grid-template-columns:1fr}.b{display:none}.btns{gap:12px}.lib{grid-template-columns:1fr 1fr}}
+.catd{margin-top:14px}.catd summary{cursor:pointer;list-style:none}.catd summary::-webkit-details-marker{display:none}.catd summary:after{content:' ▾';color:var(--l)}.catd[open] summary:after{content:' ▴'}
+#tap{align-self:flex-start;font-size:30px;padding:8px 26px;margin:10px 0}#tap[hidden]{display:none}
+@media(max-width:700px){
+ .scr{padding:12px 14px calc(10px + env(safe-area-inset-bottom));min-height:100vh;min-height:100dvh}
+ .logo{font-size:30px}.x{width:42px;height:42px;font-size:20px}
+ #player .top{display:grid;grid-template-columns:auto 1fr auto auto;gap:8px;align-items:center}
+ #player .top .logo{grid-column:1;grid-row:1}#player .top .pill:nth-child(3){grid-column:3;grid-row:1;font-size:16px;padding:6px 14px}
+ #player .top .x{grid-column:4;grid-row:1}
+ #filt{grid-column:1/-1;grid-row:2;font-size:14px;padding:6px 14px;justify-content:space-between}
+ #ft{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+ .decks{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+ .lbl{font-size:16px}.lbl i{font-size:15px}.lbl .d{width:10px;height:10px}
+ h1{font-size:34px;line-height:1;margin:4px 0}.art{font-size:15px;margin-bottom:8px}
+ .b{display:block;border:2px solid #2a2a2a;border-radius:14px;padding:8px 12px}
+ .b .lbl{font-size:14px}.b h2{font-size:20px;margin:2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#bbb}.b .art{font-size:13px;margin:0;color:#777}
+ #hint{display:block;font-size:12px;padding:6px 12px;border-width:2px;border-radius:14px;box-shadow:none}
+ canvas{height:120px}
+ .catd summary.lbl{font-size:16px}.catrow{margin-top:8px;gap:6px}.catrow .row{gap:6px}.chip{padding:5px 12px;font-size:13px}
+ .agent{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 0;margin-top:12px;border-width:2px}
+ .agent .k{display:none}.agent .t{grid-column:1/-1;font-size:15px;min-width:0}
+ .ob{font-size:14px;padding:10px 8px;text-align:center}
+ .btns{position:sticky;bottom:0;margin-top:auto;padding:10px 0 4px;background:linear-gradient(to bottom,rgba(7,7,7,0),#070707 25%);grid-template-columns:1.2fr 1fr;gap:10px}
+ .big{font-size:34px;border-width:3px;border-radius:28px;padding:10px 6px}
+ #home h1{font-size:56px}.row{gap:8px}
+ #cbar{flex-wrap:nowrap;overflow-x:auto;max-width:100%}
+}
+@media(max-width:800px){.decks{grid-template-columns:1fr}.lib{grid-template-columns:1fr 1fr}}@media(max-width:560px){.lib{grid-template-columns:1fr}}
 #decks{position:fixed;left:-9999px;top:0;width:220px;height:220px}
 </style></head><body>
 
@@ -69,15 +95,16 @@ a{color:var(--l)}
   <div class="a">
    <div class="lbl">Deck A <span class="d"></span><i>Live</i></div>
    <h1 id="ta">—</h1><div class="art" id="aa"></div>
-   <div id="hint">←→ Drag the start or the end line to your favourite part. I'll remember it.</div>
+   <div id="hint">←→ Drag the green IN / OUT lines to your favourite part and I'll remember it. Drag anywhere else to scrub the song.</div>
+   <button class="big lime" id="tap" hidden>Tap to play</button>
    <canvas id="wv"></canvas>
-   <div class="catrow"><span class="lbl" style="font-size:22px">Categories</span><div class="row" id="pchips"></div><button class="ob" id="rc" hidden>✕ Remove from all</button></div>
   </div>
   <div class="b">
    <div class="lbl">Deck B <span id="bs" style="font-size:22px">○ Cueing</span></div>
    <h2 id="tb">—</h2><div class="art" id="ab"></div>
   </div>
  </div>
+ <details class="catd" id="catd"><summary class="lbl">Categories <span id="catn"></span></summary><div class="catrow"><div class="row" id="pchips"></div><button class="ob" id="rc" hidden>✕ Remove from all</button></div></details>
  <div class="agent"><span class="k">Agent</span><span class="t" id="ag">Warming up</span>
   <button class="ob d" id="dl">🗑 Delete song</button><button class="ob" id="undo" hidden>↶ Undo</button><button class="ob" id="rh">↺ Default hook</button><button class="ob" id="rm">✕ Remove next</button><button class="ob l" id="pn">＋ Play next</button></div>
  <div class="btns"><button class="big lime" id="skip">Skip</button><button class="big" id="full">Play full</button></div>
@@ -102,11 +129,12 @@ const ytId=u=>{u=(u||'').trim();const m=u.match(/(?:v=|youtu\.be\/|embed\/|short
 const SEED=`Kala Chashma|Badshah, Neha Kakkar|5;Badtameez Dil|Benny Dayal|5;London Thumakda|Labh Janjua, Sonu Kakkar|4;Nagada Nagada|Sonu Nigam, Javed Ali|4;Laila Main Laila (New)|Pawni Pandey|5;Balam Pichkari|Vishal Dadlani, Shalmali|5;Dilliwali Girlfriend|Arijit Singh, Sunidhi Chauhan|4;Kar Gayi Chull|Badshah, Neha Kakkar|5;Chaiyya Chaiyya|Sukhwinder Singh|4;Aankh Marey|Neha Kakkar, Mika Singh|5;Nashe Si Chadh Gayi|Arijit Singh|4;Malhari|Vishal Dadlani|5;Zingaat|Ajay-Atul|5;Ghungroo|Arijit Singh, Shilpa Rao|4;Jhoome Jo Pathaan|Arijit Singh, Sukriti Kakar|5;Dhoom Machale|Sunidhi Chauhan|4;Desi Girl|Vishal Dadlani, Shankar Mahadevan|4;Sheila Ki Jawani|Sunidhi Chauhan, Vishal Dadlani|5;Munni Badnaam Hui|Mamta Sharma|5;Chikni Chameli|Shreya Ghoshal|5;Swag Se Swagat|Vishal Dadlani, Neha Bhasin|5;Apna Time Aayega|Ranveer Singh|4;Jumme Ki Raat|Mika Singh, Shreya Ghoshal|5;Dhating Naach|Nakash Aziz, Neha Kakkar|5`
  .split(';').map((x,i)=>{const p=x.split('|');return{id:'s'+i,t:p[0],a:p[1],e:+p[2],yt:'',hook:null,dur:0}});
 try{if(location.hash.startsWith('#setup=')){const c=JSON.parse(atob(location.hash.slice(7)));if(c.repo&&c.token)localStorage.setItem('naux.gh',JSON.stringify({repo:c.repo,token:c.token,auto:true}));history.replaceState(null,'',location.pathname+location.search)}}catch(e){}
+const DEFAULT_REPO='user84003/Songs.Party';
 let songs=SEED,baseMap={},loaded=false,cats=[],del=[],delc=[],curCat='All',pcatVal='';
 const strip=({id,t,a,e,yt,hook,end,cat,categories,hs})=>({id,t,a,e,yt:yt||'',hook:hook??null,end:end??null,categories:[...(categories||(cat?[cat]:[]))],hs:hs||null});
 const cl=x=>x.categories||[];
 const norm=x=>{if(!x.categories)x.categories=x.cat?[x.cat]:[];delete x.cat;return x};
-async function loadSongs(){let raw=null,err='';const g0=JSON.parse(localStorage.getItem('naux.gh')||'{}');
+async function loadSongs(){let raw=null,err='';const g0=JSON.parse(localStorage.getItem('naux.gh')||'{}');g0.repo=g0.repo||DEFAULT_REPO;
  if(g0.repo){try{const r=await fetch(`https://api.github.com/repos/${g0.repo}/contents/songs.json`,{headers:Object.assign({Accept:'application/vnd.github.raw'},g0.token?{Authorization:'Bearer '+g0.token}:{})});if(r.ok)raw=await r.json()}catch(e){}}
  if(!raw){try{const r=await fetch('songs.json?'+Date.now(),{cache:'no-store'});if(r.ok)raw=await r.json();else err='HTTP '+r.status}catch(e){err='blocked'}}
  let base=Array.isArray(raw)?raw:(raw&&raw.songs)||[],jc=(raw&&raw.cats)||[];
@@ -115,7 +143,7 @@ async function loadSongs(){let raw=null,err='';const g0=JSON.parse(localStorage.
  baseMap={};base.forEach(b=>baseMap[b.id]=b);
  const ov=JSON.parse(localStorage.getItem('naux.ov')||'{}'),extra=JSON.parse(localStorage.getItem('naux.extra')||'[]');
  del=JSON.parse(localStorage.getItem('naux.del')||'[]');delc=JSON.parse(localStorage.getItem('naux.delcats')||'[]');
- songs=[...base.filter(b=>!del.includes(b.id)),...extra.filter(x=>!baseMap[x.id])].map(x=>{const o={...(ov[x.id]||{})};if(!(o.hs==='manual'||(!o.hs&&'hs' in o&&x.hs==='manual'))){delete o.hook;delete o.end;delete o.hs}return norm(Object.assign({dur:0,hook:null,end:null,yt:'',categories:null,hs:null},x,o))});cats=[...new Set([...jc,...JSON.parse(localStorage.getItem('naux.cats')||'[]'),...songs.flatMap(x=>cl(x))])].filter(c=>!delc.includes(c));
+ songs=[...base.filter(b=>!del.includes(b.id)),...extra.filter(x=>!baseMap[x.id])].map(x=>{const o={...(ov[x.id]||{})};if(!(o.hs==='manual'||o.hs==='yt'||(!o.hs&&'hs' in o&&x.hs==='manual'))){delete o.hook;delete o.end;delete o.hs}return norm(Object.assign({dur:0,hook:null,end:null,yt:'',categories:null,hs:null},x,o))});cats=[...new Set([...jc,...JSON.parse(localStorage.getItem('naux.cats')||'[]'),...songs.flatMap(x=>cl(x))])].filter(c=>!delc.includes(c));
  loaded=true;renderLib();
  const m=err?`Could not load songs.json (${err}). Open this app through http://localhost (npx serve) or GitHub Pages, not by double-clicking index.html. Showing only the 24 built-in songs.`:`${songs.length} songs loaded in ${cats.length} categories.`+(g0.repo&&g0.token?' Syncing with GitHub.':' Changes stay on this device (add a GitHub token in Song library to sync).');
  $('homemsg').textContent=m;$('libmsg').textContent=m}
@@ -129,6 +157,21 @@ $('size').onchange=$('slice').onchange=save;
 const show=id=>['home','player','libp'].forEach(x=>$(x).hidden=x!==id);
 
 /* ---------- Library ---------- */
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function peakHook(hm,dur){let pool=hm.map((b,i)=>i).filter(i=>hm[i].s>=.08*dur&&hm[i].s<=.9*dur);if(!pool.length)pool=hm.map((b,i)=>i);
+ let p=pool[0];pool.forEach(i=>{if(hm[i].v>hm[p].v)p=i});const thr=hm[p].v*.8;let a=p,b=p;
+ while(a>0&&hm[a-1].v>=thr)a--;while(b<hm.length-1&&hm[b+1].v>=thr)b++;
+ const st=Math.max(0,Math.round(hm[a].s)-3);return[st,Math.round(Math.min(dur-1,Math.max(hm[b].e,st+35),st+90))]}
+async function getHeat(id){const url='https://www.youtube.com/watch?v='+id,prox=[u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u),u=>'https://corsproxy.io/?url='+encodeURIComponent(u)];
+ for(const p of prox){try{const r=await fetch(p(url),{signal:AbortSignal.timeout(15000)}),t=await r.text(),re=/"timeRangeStartMillis":(\d+),"markerDurationMillis":(\d+),"heatMarkerIntensityScoreNormalized":([\d.]+)/g;let m,hm=[];
+  while((m=re.exec(t)))hm.push({s:m[1]/1000,e:(+m[1]+ +m[2])/1000,v:+m[3]});
+  hm.sort((a,b)=>a.s-b.s);hm=hm.filter((b,i)=>!i||b.s!==hm[i-1].s);if(hm.length>=20)return hm}catch(e){}}
+ return null}
+async function defaultHook(s){if(!s)return false;note('Fetching the most replayed part from YouTube…');
+ const hm=ytId(s.yt)?await getHeat(ytId(s.yt)):null;
+ if(hm){const dur=s.dur||hm[hm.length-1].e;[s.hook,s.end]=peakHook(hm,dur);s.hs='yt';note('Most replayed from YouTube: IN '+fmt(s.hook)+', OUT '+fmt(s.end));return true}
+ const b=baseMap[s.id];s._sk=0;if(b&&(b.hs==='yt'||b.hs==='naux')){s.hook=b.hook;s.end=b.end;s.hs=b.hs}else{s.hook=null;s.end=null;s.hs=null}
+ note('Could not read the Most replayed graph, used the saved default');return false}
 function resetHook(s){if(!s)return;const b=baseMap[s.id];s._sk=0;if(b&&(b.hs==='yt'||b.hs==='naux')){s.hook=b.hook;s.end=b.end;s.hs=b.hs}else{s.hook=null;s.end=null;s.hs=null}}
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const catBox=s=>`<details class="cd"><summary>${cl(s).length?esc(cl(s).join(', ')):'no category'}</summary><div class="cdl">${cats.map(c=>`<label><input type="checkbox" data-i="${s.id}" data-cat="${esc(c)}" ${cl(s).includes(c)?'checked':''}> ${esc(c)}</label>`).join('')||'<small>Create a category first</small>'}</div></details>`;
@@ -160,7 +203,7 @@ $('lib').onclick=async e=>{const eid=e.target.dataset.edit;
  if(eid){e.preventDefault();const x=songs.find(y=>y.id===eid);if(!x)return;const t=prompt('Song title',x.t);if(t===null)return;const a=prompt('Artist',x.a);
   const changed=t.trim()&&t.trim()!==x.t;if(t.trim())x.t=t.trim();if(a!==null)x.a=a.trim();save();renderLib();
   if(changed&&confirm('Find a new YouTube link for the new name?')){lm('Finding link…');const id=await findLink(x.t+' '+x.a+' official video');if(id){x.yt='https://youtu.be/'+id;save();renderLib();lm('Linked. Check it is the right video.')}else lm('Could not find a link.')}return}
- const rid=e.target.dataset.reset;if(rid){e.preventDefault();resetHook(songs.find(x=>x.id===rid));save();renderLib();return}const id=e.target.dataset.del;if(!id)return;e.preventDefault();const x=songs.find(s=>s.id===id);if(!x||!confirm(`Delete "${x.t}"?`))return;songs=songs.filter(s=>s.id!==id);if(baseMap[id]&&!del.includes(id))del.push(id);save();renderLib()};
+ const rid=e.target.dataset.reset;if(rid){e.preventDefault();const x0=songs.find(y=>y.id===rid);lm('Fetching from YouTube…');await defaultHook(x0);save();renderLib();lm('');return}const id=e.target.dataset.del;if(!id)return;e.preventDefault();const x=songs.find(s=>s.id===id);if(!x||!confirm(`Delete "${x.t}"?`))return;songs=songs.filter(s=>s.id!==id);if(baseMap[id]&&!del.includes(id))del.push(id);save();renderLib()};
 async function findLink(q){
  const key=$('apik').value.trim();
  if(key){try{const r=await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoEmbeddable=true&maxResults=1&q='+encodeURIComponent(q)+'&key='+key);const j=await r.json();const id=j.items&&j.items[0]&&j.items[0].id.videoId;if(id)return id}catch(e){}}
@@ -183,7 +226,7 @@ $('findall').onclick=async e=>{e.preventDefault();save();const todo=songs.filter
 $('exp').onclick=()=>{save();const b=new Blob([JSON.stringify({cats,songs:songs.map(strip)},null,1)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='songs.json';a.click()};
 var ghT;
 const lm=t=>{$('libmsg').textContent=t};
-const gh=()=>JSON.parse(localStorage.getItem('naux.gh')||'{}');
+const gh=()=>{const g=JSON.parse(localStorage.getItem('naux.gh')||'{}');g.repo=g.repo||DEFAULT_REPO;return g};
 const ghSet=()=>localStorage.setItem('naux.gh',JSON.stringify({repo:$('ghrepo').value.trim(),token:$('ghtok').value.trim(),auto:$('ghauto').checked}));
 {const g=gh();$('ghrepo').value=g.repo||'';$('ghtok').value=g.token||'';$('ghauto').checked=!!g.auto}
 $('ghrepo').onchange=$('ghtok').onchange=$('ghauto').onchange=ghSet;
@@ -253,40 +296,52 @@ $('start').onclick=async()=>{if(starting)return;initYT();const m=$('homemsg');
  try{const size=$('size').value==='all'?1e9:+$('size').value;slice=+$('slice').value;full=false;save();
   const pool=songs.filter(x=>!pcatVal||cl(x).includes(pcatVal)).sort(()=>Math.random()-.5);
   queue=pool.slice(0,size).sort((a,b)=>a.e-b.e);
-  let ok=0,k=0,fails=0;
-  while(k<queue.length&&ok<2&&fails<3){const x=queue[k];
-   if(!ytId(x.yt)){m.textContent='Finding YouTube links… '+x.t;const id=await findLink(x.t+' '+x.a+' official video');if(id){x.yt='https://youtu.be/'+id;save()}else{fails++;queue.splice(k,1);continue}}
-   ok++;k++}
-  if(ok<2){m.textContent='Could not find YouTube links automatically. Add a YouTube API key in Song library, or paste links.';return}
-  idx=0;cur=0;running=true;lock=false;m.textContent='';
-  $('ft').textContent=`Hindi · ${pcatVal||'All songs'} · ${queue.length} songs`;
-  show('player');$('hint').hidden=!!localStorage.getItem('naux.hint');render();loadOn(0,queue[0]);fade(decks[0],0,100,1500);
-  clearInterval(tk);tk=setInterval(tick,250)}
+  const li=queue.findIndex(x=>ytId(x.yt));
+  if(li>0)queue.unshift(...queue.splice(li,1));
+  if(li<0){let ok=0,k=0,fails=0;
+   while(k<queue.length&&ok<1&&fails<3){const x=queue[k];m.textContent='Finding YouTube links… '+x.t;const id=await findLink(x.t+' '+x.a+' official video');
+    if(id){x.yt='https://youtu.be/'+id;save();ok++}else{fails++;queue.splice(k,1)}}
+   if(!ok){m.textContent='Could not find YouTube links automatically. Add a YouTube API key in Song library, or paste links.';return}}
+  beginPlay(m)}
  finally{starting=false}};
+function beginPlay(m){idx=0;cur=0;running=true;lock=false;m.textContent='';
+ $('ft').textContent=`Hindi · ${pcatVal||'All songs'} · ${queue.length} songs`;
+ show('player');$('hint').hidden=!!localStorage.getItem('naux.hint');render();loadOn(0,queue[0]);fade(decks[0],0,100,1500);
+ clearInterval(tk);tk=setInterval(tick,250);
+ setTimeout(()=>{if(!running)return;const st=decks[cur].getPlayerState();if(st!==1&&st!==3&&$('pp').textContent!=='▶')$('tap').hidden=false},3000)}
+$('tap').onclick=()=>{$('tap').hidden=true;decks[cur].playVideo();fade(decks[cur],0,100,800)};
 
-function tick(){if(!running)return;const p=decks[cur],s=queue[idx];if(!p||!p.getDuration)return;const dur=p.getDuration();if(!dur)return;
+var cuedFor=null;
+function preload(){if(!running||lock)return;const n=queue[idx+1];if(!n||!ytId(n.yt)||cuedFor===n.id)return;const p=decks[1-cur];if(!p||!p.cueVideoById)return;
+ p.setVolume(0);p.cueVideoById({videoId:ytId(n.yt),startSeconds:n.hook!=null?n.hook:(n.dur?Math.round(n.dur*.22):40)});cuedFor=n.id}
+$('catd').open=!matchMedia('(max-width:700px)').matches;
+function tick(){if(!running)return;preload();const p=decks[cur],s=queue[idx];if(!p||!p.getDuration)return;const dur=p.getDuration();if(!$('tap').hidden&&p.getPlayerState()===1)$('tap').hidden=true;if(!dur){drawIdle(s);return}
  s.dur=dur;if(s.hook==null&&!s._sk){s._sk=1;s.hook=Math.round(dur*.22);s.hs='guess';p.seekTo(s.hook,true);save()}
  const [c,cut]=cueCut(s,dur),pos=p.getCurrentTime(),n=queue[idx+1];
  $('tm').textContent=`${fmt(pos)} / ${fmt(dur)}`;
  $('ag').textContent=Date.now()<noteUntil?noteTxt:(full?'Playing the full track':n?`Cutting at ${fmt(cut)}, energy ${n.e>s.e?'going up':n.e<s.e?'easing off':'holding'}`:'Last track, letting it ring out');
  draw(s,dur,c,cut,pos);
- if(!lock&&pos>=cut-3.5&&p.getPlayerState()===1)next()}
+ if(!lock&&!drag&&pos>=cut-3.5&&p.getPlayerState()===1)next()}
 
 async function next(){if(lock)return;lock=true;
  while(idx+1<queue.length&&!ytId(queue[idx+1].yt)){const x=queue[idx+1],id=await findLink(x.t+' '+x.a+' official video');if(id){x.yt='https://youtu.be/'+id;save()}else queue.splice(idx+1,1)}
  if(!running){lock=false;return}
  if(idx+1>=queue.length){lock=false;stopAll('Set finished. Start again for a new one.');return}
- const old=decks[cur],nd=1-cur;idx++;cur=nd;full=false;render();loadOn(nd,queue[idx]);
- fade(decks[nd],0,100,3000);fade(old,100,0,3000,()=>old.pauseVideo());setTimeout(()=>lock=false,4000)}
+ const old=decks[cur],nd=1-cur,s=queue[idx+1];if(cuedFor===s.id){decks[nd].setVolume(0);decks[nd].playVideo()}else loadOn(nd,s);cuedFor=null;const t0=Date.now();
+ while(running&&Date.now()-t0<45000){const p=decks[nd],d=p.getDuration?p.getDuration():0,adLike=s.dur?Math.abs(d-s.dur)>2:(d>0&&d<45);
+  if(p.getPlayerState()===1&&d>0&&!adLike&&p.getCurrentTime()>=(s.hook!=null?s.hook:0)-1.5)break;
+  if(Date.now()-t0>1500)note('Loading the next song (waiting out any YouTube ad)…');await sleep(400)}
+ if(!running){lock=false;return}
+ idx++;cur=nd;full=false;render();fade(decks[nd],0,100,3000);fade(old,100,0,3000,()=>old.pauseVideo());setTimeout(()=>lock=false,4000)}
 var warming=false;
 function deckB(){const n=queue[idx+1];$('tb').textContent=n?n.t:'End of set';$('ab').textContent=n?n.a:''}
 async function warm(){if(warming)return;warming=true;
  try{for(const k of[1,2]){const x=queue[idx+k];if(x&&!ytId(x.yt)){const id=await findLink(x.t+' '+x.a+' official video');if(id){x.yt='https://youtu.be/'+id;save()}else{const j=queue.indexOf(x);if(j>idx)queue.splice(j,1)}}}}
  finally{warming=false}deckB()}
-function stopAll(m){running=false;clearInterval(tk);decks.forEach(d=>d&&d.pauseVideo&&d.pauseVideo());show('home');$('homemsg').textContent=m||''}
+function stopAll(m){running=false;cuedFor=null;clearInterval(tk);decks.forEach(d=>d&&d.pauseVideo&&d.pauseVideo());show('home');$('homemsg').textContent=m||''}
 
-$('rh').onclick=()=>{const s=queue[idx];resetHook(s);if(s.hook!=null)decks[cur].seekTo(s.hook,true);save();note(s.hs==='yt'?'Back to the most replayed hook':'Back to the default hook')};
-function catPicker(){const s=queue[idx];if(!s)return;
+$('rh').onclick=async()=>{const s0=queue[idx];await defaultHook(s0);if(s0===queue[idx]&&s0.hook!=null)decks[cur].seekTo(s0.hook,true);save()};
+function catPicker(){const s=queue[idx];if(!s)return;$('catn').textContent=cl(s).length?'· '+cl(s).length:'';
  $('pchips').innerHTML=cats.map(c=>`<button class="chip ${cl(s).includes(c)?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('')+`<button class="chip" data-c="__new">＋ New</button>`;$('rc').hidden=!cl(s).length}
 $('pchips').onclick=e=>{const s=queue[idx];let c=e.target.dataset.c;if(c==null||!s)return;
  if(c==='__new'){c=(prompt('New category name')||'').trim();if(!c)return;if(!cats.includes(c))cats.push(c);delc=delc.filter(x=>x!==c)}
@@ -311,18 +366,36 @@ $('close').onclick=()=>stopAll('');$('chg').onclick=()=>stopAll('');
 const wv=$('wv');
 function env(s,n){if(s._w)return s._w;let seed=0;for(const ch of s.t)seed=(seed*31+ch.charCodeAt(0))>>>0;
  return s._w=Array.from({length:n},(_,i)=>{seed=(seed*1664525+1013904223)>>>0;const x=i/n,b=Math.sin(Math.PI*Math.min(1,x*1.08))*.7+.18;return Math.min(1,b*(.55+.45*seed/4294967296))})}
-function draw(s,dur,c,cut,pos){const dpr=devicePixelRatio||1,W=wv.clientWidth*dpr,H=wv.clientHeight*dpr;if(wv.width!==W){wv.width=W;wv.height=H}
- const g=wv.getContext('2d'),n=130,w=env(s,n),bw=W/n;g.clearRect(0,0,W,H);
- for(let i=0;i<n;i++){const t=i/n*dur,h=Math.max(4*dpr,w[i]*H*.85);g.fillStyle=t>=c&&t<=cut?'#e8e8e8':'#4a4a4a';g.fillRect(i*bw,(H-h)/2,bw*.55,h)}
- const cx=c/dur*W,ex=cut/dur*W;g.fillStyle='#c8ff00';g.fillRect(cx-2*dpr,H*.04,4*dpr,H*.92);g.fillRect(ex-1.5*dpr,H*.04,3*dpr,H*.92);
- g.beginPath();g.moveTo(cx-9*dpr,0);g.lineTo(cx+9*dpr,0);g.lineTo(cx,10*dpr);g.fill();
- g.strokeStyle='#c8ff00';g.lineWidth=3*dpr;g.beginPath();g.arc(cx,H/2,16*dpr,0,7);g.stroke();
- g.fillStyle='#fff';g.fillRect(pos/dur*W-1*dpr,H*.1,2*dpr,H*.8)}
-let drag=0;
-function mv(e){const s=queue[idx];if(!s||!s.dur)return;const r=wv.getBoundingClientRect(),t=Math.round(Math.max(0,Math.min(s.dur-2,(e.clientX-r.left)/r.width*s.dur)));
+function drawIdle(s){const dpr=devicePixelRatio||1,W=Math.round(wv.clientWidth*dpr),H=Math.round(wv.clientHeight*dpr);if(!W)return;if(wv.width!==W||wv.height!==H){wv.width=W;wv.height=H}
+ const g=wv.getContext('2d'),n=130,w=env(s,n),bw=W/n,T=30*dpr,A=H-T;g.clearRect(0,0,W,H);
+ for(let i=0;i<n;i++){const h=Math.max(4*dpr,w[i]*A*.9);g.fillStyle='#333';g.fillRect(i*bw,T+(A-h)/2,bw*.55,h)}
+ g.fillStyle='#8a8a8a';g.font=`${20*dpr}px Anton,Impact,sans-serif`;g.textAlign='center';g.fillText('LOADING…',W/2,20*dpr)}
+function draw(s,dur,c,cut,pos){const dpr=devicePixelRatio||1,W=Math.round(wv.clientWidth*dpr),H=Math.round(wv.clientHeight*dpr);if(wv.width!==W||wv.height!==H){wv.width=W;wv.height=H}
+ const g=wv.getContext('2d'),n=130,w=env(s,n),bw=W/n,T=30*dpr,A=H-T;g.clearRect(0,0,W,H);
+ for(let i=0;i<n;i++){const t=i/n*dur,h=Math.max(4*dpr,w[i]*A*.9);g.fillStyle=t>=c&&t<=cut?'#e8e8e8':'#4a4a4a';g.fillRect(i*bw,T+(A-h)/2,bw*.55,h)}
+ const cx=c/dur*W,ex=cut/dur*W,px=pos/dur*W;
+ g.fillStyle='#c8ff00';g.fillRect(cx-2*dpr,T-4*dpr,4*dpr,A+4*dpr);g.fillRect(ex-1.5*dpr,T-4*dpr,3*dpr,A+4*dpr);
+ g.beginPath();g.moveTo(cx-8*dpr,T-6*dpr);g.lineTo(cx+8*dpr,T-6*dpr);g.lineTo(cx,T+4*dpr);g.fill();
+ g.strokeStyle='#c8ff00';g.lineWidth=3*dpr;g.beginPath();g.arc(cx,T+A/2,14*dpr,0,7);g.stroke();
+ g.fillStyle='#fff';g.fillRect(px-1*dpr,T,2*dpr,A);
+ g.fillStyle='#c8ff00';g.font=`${22*dpr}px Anton,Impact,sans-serif`;
+ const close=ex-cx<130*dpr,cl2=v=>Math.max(44*dpr,Math.min(W-44*dpr,v));
+ g.textAlign=close?'right':'center';g.fillText('IN '+fmt(c),close?cx:cl2(cx),20*dpr);
+ g.textAlign=close?'left':'center';g.fillText('OUT '+fmt(cut),close?ex:cl2(ex),20*dpr)}
+let drag=0,scrubT=0,lastSeek=0;
+function keepPlaying(){const p=decks[cur];if(p&&running&&$('pp').textContent!=='▶')p.playVideo()}
+function tAt(e){const s=queue[idx],r=wv.getBoundingClientRect();return Math.max(0,Math.min(s.dur-1,(e.clientX-r.left)/r.width*s.dur))}
+function mv(e){const s=queue[idx];if(!s||!s.dur)return;const t=Math.round(tAt(e));
+ if(drag===3){scrubT=tAt(e);const now=Date.now();if(now-lastSeek>150){lastSeek=now;decks[cur].seekTo(scrubT,true)}return}
  if(drag===2){s.end=Math.max(t,cueCut(s,s.dur)[0]+10)}else{s.hook=Math.min(t,s.dur-12);if(s.end!=null&&s.end<s.hook+10)s.end=Math.min(s.dur-1,s.hook+10)}}
-wv.onpointerdown=e=>{const s=queue[idx];if(!s||!s.dur)return;const r=wv.getBoundingClientRect(),[c,cut]=cueCut(s,s.dur),x=(e.clientX-r.left)/r.width*s.dur;
- drag=(Math.abs(x-cut)<Math.abs(x-c)&&Math.abs(x-cut)<s.dur*.06)?2:1;wv.setPointerCapture(e.pointerId);mv(e)};
-wv.onpointermove=e=>drag&&mv(e);
-wv.onpointerup=()=>{if(!drag)return;const d=drag;drag=0;const s=queue[idx];s.hs='manual';if(d===1)decks[cur].seekTo(s.hook,true);if(d===2&&s.end==null)s.end=cueCut(s,s.dur)[1];save();localStorage.setItem('naux.hint','1');$('hint').hidden=true;note(d===1?'Start saved. I will always drop here':'End saved. I will always cut here')};
+wv.onpointerdown=e=>{const s=queue[idx];if(!s||!s.dur)return;const x=tAt(e),[c,cut]=cueCut(s,s.dur),th=s.dur*.04;
+ drag=(Math.abs(x-cut)<th&&Math.abs(x-cut)<=Math.abs(x-c))?2:(Math.abs(x-c)<th?1:3);
+ wv.setPointerCapture(e.pointerId);wv.style.cursor=drag===3?'grabbing':'ew-resize';mv(e)};
+wv.onpointermove=e=>{if(drag){mv(e);return}const s=queue[idx];if(!s||!s.dur)return;const x=tAt(e),[c,cut]=cueCut(s,s.dur),th=s.dur*.04;
+ wv.style.cursor=(Math.abs(x-c)<th||Math.abs(x-cut)<th)?'ew-resize':'grab'};
+wv.onpointerup=()=>{if(!drag)return;const d=drag;drag=0;wv.style.cursor='grab';const s=queue[idx];
+ if(d===3){decks[cur].seekTo(scrubT,true);keepPlaying();setTimeout(()=>{const p=decks[cur];if(p&&p.getPlayerState()!==1)keepPlaying()},500);if(!full&&scrubT>cueCut(s,s.dur)[1]-3.5){full=true;render();note('Playing the full track')}return}
+ s.hs='manual';if(d===1)decks[cur].seekTo(s.hook,true);if(d===2&&s.end==null)s.end=cueCut(s,s.dur)[1];
+ save();localStorage.setItem('naux.hint','1');$('hint').hidden=true;note(d===1?'IN saved. I will always drop here':'OUT saved. I will always cut here')};
+wv.onpointercancel=wv.onpointerup;
 </script></body></html>

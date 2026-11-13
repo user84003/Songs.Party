@@ -41,6 +41,14 @@ canvas{width:100%;max-width:1100px;height:150px;touch-action:none;cursor:grab;di
 .cd{position:relative}.cd summary{cursor:pointer;font-size:13px;padding:5px 8px;border:1px solid #333;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cdl{position:absolute;z-index:5;right:0;background:#141414;border:1px solid #444;border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:190px}.cdl label{font-size:13px;white-space:nowrap}.cdl input{width:auto!important}
 .ob.d{border-color:#ff5252;color:#ff5252}
 a{color:var(--l)}
+.djdecks{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:22px;margin-top:22px;align-items:start}
+.djd{border:3px solid #2a2a2a;border-radius:22px;padding:16px 20px;transition:border-color .2s,box-shadow .2s}.djd.live{border-color:var(--l);box-shadow:0 0 30px #c8ff0033}
+.djd h2{font-size:clamp(30px,4vw,58px);line-height:1;margin:8px 0;color:#fff}
+.meter{height:14px;background:#222;border-radius:9px;overflow:hidden;margin:12px 0 8px}.meter span{display:block;height:100%;width:0;background:var(--l)}
+.djmid{text-align:center}.djmove{font-family:Anton,Impact,sans-serif;font-size:clamp(44px,6vw,96px);color:var(--l);line-height:1;margin:10px 0 6px;text-transform:uppercase}
+.djmid input{width:100%;accent-color:var(--l);margin-top:14px}
+.btns2{display:flex;gap:10px;margin-top:auto;padding-top:24px;flex-wrap:wrap}.btns2 .ob{flex:1;min-width:120px}
+@media(max-width:700px){.djdecks{grid-template-columns:1fr 1fr;gap:10px}.djmid{grid-column:1/-1;order:-1}.djd{padding:10px 12px;border-width:2px;border-radius:16px}.djd h2{font-size:22px}.djmove{font-size:48px}}
 .catd{margin-top:14px}.catd summary{cursor:pointer;list-style:none}.catd summary::-webkit-details-marker{display:none}.catd summary:after{content:' ▾';color:var(--l)}.catd[open] summary:after{content:' ▴'}
 #tap{align-self:flex-start;font-size:30px;padding:8px 26px;margin:10px 0}#tap[hidden]{display:none}
 @media(max-width:700px){
@@ -83,6 +91,8 @@ a{color:var(--l)}
  </div>
  <button class="big lime" id="start">Start the aux</button>
  <button class="big" id="resume" hidden style="font-size:30px">Resume last set</button>
+ <button class="big" id="djbtn" style="font-size:44px;border-color:var(--l);color:var(--l)">DJ</button>
+ <div class="tg" style="margin-top:-8px">DJ mode mixes two songs' hooks, loops them and keeps swapping in new ones. Your personal DJ.</div>
  <button class="big" id="openlib" style="font-size:36px">Song library</button>
  <div class="msg" id="homemsg"></div>
 </section>
@@ -111,6 +121,16 @@ a{color:var(--l)}
  <div class="agent"><span class="k">Agent</span><span class="t" id="ag">Warming up</span>
   <button class="ob d" id="dl">🗑 Delete song</button><button class="ob" id="undo" hidden>↶ Undo</button><button class="ob" id="rh">↺ Default hook</button><button class="ob" id="rm">✕ Remove next</button><button class="ob l" id="pn">＋ Play next</button></div>
  <div class="btns"><button class="big lime" id="skip">Skip</button><button class="big" id="full">Play full</button></div>
+</section>
+
+<section class="scr" id="djs" hidden>
+ <div class="top"><div class="logo">DJ</div><div class="pill"><span id="djmodet">Chill</span><b id="djmodeb">Switch</b></div><button class="x" id="djx">✕</button></div>
+ <div class="djdecks">
+  <div class="djd" id="dd0"><div class="lbl">Deck A <i id="ds0"></i></div><h2 id="dt0">—</h2><div class="art" id="da0"></div><div class="meter"><span id="dm0"></span></div><div class="art" id="dl0"></div></div>
+  <div class="djmid"><div class="djmove" id="djmove">—</div><div class="art" id="djag"></div><input type="range" id="xf" min="0" max="100" value="0" disabled></div>
+  <div class="djd" id="dd1"><div class="lbl">Deck B <i id="ds1"></i></div><h2 id="dt1">—</h2><div class="art" id="da1"></div><div class="meter"><span id="dm1"></span></div><div class="art" id="dl1"></div></div>
+ </div>
+ <div class="btns2"><button class="ob" id="djauto">Auto ✓</button><button class="ob l" id="djnew">New song</button><button class="ob" id="djlock">Keep pair: off</button><button class="ob" id="djpp">Pause</button></div>
 </section>
 
 <section class="scr" id="libp" hidden>
@@ -157,7 +177,7 @@ function save(q){if(!loaded)return;const ov={},extra=[];
 $('apik').value=localStorage.getItem('naux.key')||'';
 try{const st=JSON.parse(localStorage.getItem('naux.set')||'{}');pcatVal=st.cat||'';if(st.size)$('size').value=st.size;if(st.slice)$('slice').value=st.slice}catch(e){}
 $('size').onchange=$('slice').onchange=save;
-const show=id=>['home','player','libp'].forEach(x=>$(x).hidden=x!==id);
+const show=id=>['home','player','libp','djs'].forEach(x=>$(x).hidden=x!==id);
 
 /* ---------- Library ---------- */
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -420,4 +440,66 @@ wv.onpointerup=()=>{if(!drag)return;const d=drag;drag=0;wv.style.cursor='grab';c
  s.hs='manual';if(d===1)decks[cur].seekTo(s.hook,true);if(d===2&&s.end==null)s.end=cueCut(s,s.dur)[1];
  save();localStorage.setItem('naux.hint','1');$('hint').hidden=true;note(d===1?'IN saved. I will always drop here':'OUT saved. I will always cut here')};
 wv.onpointercancel=wv.onpointerup;
+
+/* ---------- DJ mode: two decks, hooks only, looped and mixed ---------- */
+var dj={on:false,mode:'chill',auto:true,lock:false,paused:false,x:0,sc:null,n:0,pool:[],tm:null,rot:false,starting:false};
+var DD=[{vol:0},{vol:0}];
+const djHook=s=>{const c=s.hook!=null?s.hook:(s.dur?Math.round(s.dur*.22):40);return[c,Math.max(12,Math.min(s.end!=null?s.end-c:30,45))]};
+function djVol(i,v){DD[i].vol=v;try{decks[i].setVolume(Math.round(Math.max(0,Math.min(100,v))))}catch(e){}}
+function djLoad(i,s){const[c,len]=djHook(s);DD[i]={s,c,len,vol:0,loops:0,seeked:s.hook!=null||!!s.dur};try{decks[i].setVolume(0);decks[i].loadVideoById({videoId:ytId(s.yt),startSeconds:c})}catch(e){}}
+function djReady(i){const p=decks[i],s=DD[i].s;if(!s||!p.getDuration)return false;const d=p.getDuration();if(!d)return false;const ad=s.dur?Math.abs(d-s.dur)>2:d<60;return p.getPlayerState()===1&&!ad&&p.getCurrentTime()>=DD[i].c-1.5}
+async function djNextSong(){for(let t=0;t<8;t++){if(!dj.pool.length)dj.pool=songs.filter(x=>!pcatVal||cl(x).includes(pcatVal)).sort(()=>Math.random()-.5);
+  const x=dj.pool.shift();if(!x||x===DD[0].s||x===DD[1].s)continue;
+  if(!ytId(x.yt)){const id=await findLink(x.t+' '+x.a+' official video');if(!id)continue;x.yt='https://youtu.be/'+id;save()}return x}return null}
+async function djRotate(){if(dj.rot||!dj.on)return;dj.rot=true;try{const q=DD[0].vol<=DD[1].vol?0:1,s=await djNextSong();if(s&&dj.on)djLoad(q,s)}finally{dj.rot=false}}
+function djPick(){const hype=dj.mode==='hype',W=hype?{juggle:30,roll:25,blend:20,layer:20,hold:5}:{blend:40,hold:25,layer:20,roll:10,juggle:5};
+ const from=dj.x<.5?0:1,qd=1-from;let types=Object.keys(W);if(!djReady(qd))types=['hold','roll'];
+ let tot=0;const ent=types.map(t=>{tot+=W[t];return[t,tot]}),r=Math.random()*tot,t=ent.find(e=>r<=e[1])[0];
+ const D={blend:hype?[6,9]:[10,16],juggle:hype?[6,10]:[8,12],layer:hype?[6,8]:[8,12],roll:[5,7],hold:hype?[4,6]:[8,12]}[t],d=D[0]+Math.random()*(D[1]-D[0]);
+ let to=from;if(t==='blend')to=1-from;if(t==='juggle'||t==='layer')to=Math.random()<.6?1-from:from;
+ let p0=0;try{p0=decks[from].getCurrentTime()}catch(e){}
+ dj.sc={t,ts:Date.now(),d:d*1000,from,to,beat:hype?1.6:2.4,roll:0,p0}}
+function djNext(){if(dj.sc){dj.x=dj.sc.to;dj.n++}
+ if(!dj.lock&&dj.n&&dj.n%(dj.mode==='hype'?4:6)===0&&(dj.x===0||dj.x===1))djRotate();
+ djPick()}
+function djApply(){const sc=dj.sc,el=Date.now()-sc.ts,u=Math.min(1,el/sc.d);let x=sc.from;
+ if(sc.t==='blend'){x=sc.from+(sc.to-sc.from)*(u*u*(3-2*u))}
+ else if(sc.t==='juggle'){x=(Math.floor(el/1000/sc.beat)%2)?1-sc.from:sc.from;if(u>=1)x=sc.to}
+ else if(sc.t==='layer'){x=u>.75?.5+(sc.to-.5)*((u-.75)/.25):.5}
+ else if(sc.t==='roll'){const b=Math.floor(el/1500);if(b>sc.roll&&sc.roll<4){sc.roll=b;try{decks[sc.from].seekTo(sc.p0,true)}catch(e){}}}
+ dj.x=x;djVol(0,100*Math.cos(x*Math.PI/2));djVol(1,100*Math.sin(x*Math.PI/2))}
+function djTick(){if(!dj.on||dj.paused)return;
+ [0,1].forEach(i=>{const p=decks[i],s=DD[i].s;if(!s||!p.getCurrentTime)return;const d=p.getDuration?p.getDuration():0;
+  if(d>60&&!s.dur)s.dur=d;
+  if(!DD[i].seeked&&d>60&&s.hook==null){DD[i].seeked=true;DD[i].c=Math.round(d*.22);p.seekTo(DD[i].c,true)}
+  if(p.getPlayerState()===1&&p.getCurrentTime()>=DD[i].c+DD[i].len){p.seekTo(DD[i].c,true);DD[i].loops++}});
+ if(dj.auto){if(!dj.sc||Date.now()-dj.sc.ts>=dj.sc.d)djNext();djApply()}
+ else{djVol(0,100*Math.cos(dj.x*Math.PI/2));djVol(1,100*Math.sin(dj.x*Math.PI/2))}
+ djRender()}
+function djRender(){[0,1].forEach(i=>{const d=DD[i];if(!d.s)return;$('dt'+i).textContent=d.s.t;$('da'+i).textContent=d.s.a;$('dm'+i).style.width=Math.round(d.vol)+'%';
+  $('dd'+i).classList.toggle('live',d.vol>50);$('ds'+i).textContent=d.vol>50?'● LIVE':d.vol>5?'MIXING':'CUEING';$('dl'+i).textContent=d.loops?'Hook repeated ×'+d.loops:''});
+ const N={blend:['BLEND','Sliding one hook into the other'],juggle:['JUGGLE','Cutting back and forth between the hooks'],layer:['LAYER','Both hooks at once'],roll:['LOOP ROLL','Stuttering the hook'],hold:['HOLD','Letting the hook ride']},sc=dj.sc;
+ $('djmove').textContent=dj.auto&&sc?N[sc.t][0]:'MANUAL';$('djag').textContent=dj.auto&&sc?N[sc.t][1]:'You are on the crossfader';
+ if(dj.auto)$('xf').value=Math.round(dj.x*100)}
+function stopDJ(m){dj.on=false;clearInterval(dj.tm);decks.forEach(d=>{try{d.pauseVideo()}catch(e){}});wakeOff();show('home');if(m)$('homemsg').textContent=m}
+function beginDJ(a,b){running=false;clearInterval(tk);dj.on=true;dj.auto=true;dj.paused=false;dj.x=0;dj.n=0;dj.rot=false;
+ $('xf').disabled=true;$('djauto').textContent='Auto ✓';$('djpp').textContent='Pause';show('djs');
+ djLoad(0,a);djLoad(1,b);dj.sc={t:'hold',ts:Date.now(),d:9000,from:0,to:0,beat:2,roll:0,p0:0};
+ wakeOn();clearInterval(dj.tm);dj.tm=setInterval(djTick,200)}
+$('djbtn').onclick=async()=>{initYT();const m=$('homemsg');if(!YTready){m.textContent=apiErr||'YouTube player is still loading. Use http://localhost (not file://) and retry.';return}
+ if(dj.starting)return;dj.starting=true;
+ try{dj.pool=songs.filter(x=>!pcatVal||cl(x).includes(pcatVal)).sort(()=>Math.random()-.5);
+  const got=dj.pool.filter(x=>ytId(x.yt)).slice(0,2);
+  for(const x of dj.pool){if(got.length>=2)break;if(got.includes(x))continue;m.textContent='Finding YouTube links… '+x.t;const id=await findLink(x.t+' '+x.a+' official video');if(id){x.yt='https://youtu.be/'+id;save();got.push(x)}}
+  if(got.length<2){m.textContent='DJ needs two songs with YouTube links. Add an API key or links in Song library.';return}
+  dj.pool=dj.pool.filter(x=>!got.includes(x));m.textContent='';beginDJ(got[0],got[1])}
+ finally{dj.starting=false}};
+$('djmodeb').onclick=()=>{dj.mode=dj.mode==='chill'?'hype':'chill';$('djmodet').textContent=dj.mode==='chill'?'Chill':'Hype'};
+$('djauto').onclick=()=>{dj.auto=!dj.auto;$('xf').disabled=dj.auto;$('djauto').textContent=dj.auto?'Auto ✓':'Manual';if(dj.auto){dj.x=dj.x<.5?0:1;dj.sc=null}};
+$('xf').oninput=()=>{if(!dj.auto)dj.x=$('xf').value/100};
+$('djnew').onclick=()=>djRotate();
+$('djlock').onclick=()=>{dj.lock=!dj.lock;$('djlock').textContent='Keep pair: '+(dj.lock?'on':'off')};
+$('djpp').onclick=()=>{dj.paused=!dj.paused;decks.forEach(d=>{try{dj.paused?d.pauseVideo():d.playVideo()}catch(e){}});$('djpp').textContent=dj.paused?'Play':'Pause'};
+$('djx').onclick=()=>stopDJ('');
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&dj.on&&!dj.paused){wakeOn();decks.forEach(d=>{try{d.playVideo()}catch(e){}})}});
 </script></body></html>
